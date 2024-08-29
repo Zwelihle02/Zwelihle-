@@ -111,10 +111,14 @@ ChatbotSendMessage("Sawubona! igamalami ubheki ngiyi shathi bhothi yase UNIZULU.
 function showTypingIndicator() {
     var typingElement = document.createElement('div');
     typingElement.classList.add('message', 'bot-message');
-    typingElement.innerHTML = "<span>Chatbot:</span><span style='display:block; margin-top:10px;'>Chatbot is typing...</span>";
-    typingElement.id = "typingIndicator"; // Set an ID for later removal
+    typingElement.id = "typingIndicator";
+    typingElement.innerHTML = "<span>Chatbot is typing</span><span class='dots'>...</span>";
     chatContainer.appendChild(typingElement);
     chatContainer.scrollTop = chatContainer.scrollHeight;
+
+    // Add animation for dots
+    const dots = typingElement.querySelector('.dots');
+    dots.classList.add('dots-animation');
 }
 
 // Function to remove the "Chatbot is typing..." effect
@@ -124,6 +128,7 @@ function removeTypingIndicator() {
         typingElement.remove();
     }
 }
+
 
 // Function to send chatbot messages with "thinking" effect
 function ChatbotSendMessage(messageText) {
