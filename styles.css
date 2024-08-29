@@ -11,15 +11,24 @@
 }
 
 .message {
-    max-width: 75%;
-    padding: 10px 15px;
-    margin: 10px 0;
-    border-radius: 15px;
-    font-size: 14px;
-    line-height: 1.5;
     position: relative;
-    display: inline-block;
+    border-radius: 20px;
+    padding: 10px;
+    background-color: #f0f0f0;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
 }
+
+.message::after {
+    content: '';
+    position: absolute;
+    bottom: -10px; /* Adjust position */
+    left: 20px; /* Adjust position */
+    width: 0;
+    height: 0;
+    border: 10px solid transparent;
+    border-top-color: #f0f0f0;
+}
+
 
 .user-message {
     background-color: #e1ffc7; /* Light green for user messages */
