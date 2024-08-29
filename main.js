@@ -105,7 +105,7 @@ var modules = [
 ];
 
 // Initial message from the chatbot
-ChatbotSendMessage("Sawubona! igamalami uTObi ngiyi chathi bhothi yase UNIZULU. Umsebenziwami ukukusiza ukuthi uthole izinsiza kufunda ezikuma mojuli gadi. Bengicela ufake imojuli khodi noma ubhale inombolo 1.");
+ChatbotSendMessage("Sawubona! igamalami ubheki ngiyi shathi bhothi yase UNIZULU. Umsebenziwami ukukusiza ukuthi uthole izinsiza kufunda ezikuma mojuli gadi. Bengicela ufake imojuli khodi noma ubhale inombolo 1 ukuze siqale.");
 
 // Function to send chatbot messages
 function ChatbotSendMessage(messageText) {
