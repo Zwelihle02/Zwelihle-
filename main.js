@@ -127,11 +127,11 @@ function removeTypingIndicator() {
 
 // Function to send chatbot messages with "thinking" effect
 function ChatbotSendMessage(messageText) {
-    //showTypingIndicator();
+    showTypingIndicator();
     showLoading(); // Show loading animation
     
     setTimeout(function () {
-       // removeTypingIndicator();
+       removeTypingIndicator();
         var messageElement = document.createElement('div');
         messageElement.classList.add('message', 'bot-message');
         messageElement.innerHTML = "<span>Chatbot:</span><span style='display:block; margin-top:10px;'>" + messageText + "</span>";
