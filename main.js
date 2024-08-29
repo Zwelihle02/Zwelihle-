@@ -128,7 +128,8 @@ function removeTypingIndicator() {
 // Function to send chatbot messages with "thinking" effect
 function ChatbotSendMessage(messageText) {
     showTypingIndicator();
-
+    showLoading(); // Show loading animation
+    
     setTimeout(function () {
         removeTypingIndicator();
         var messageElement = document.createElement('div');
@@ -148,12 +149,14 @@ function ChatbotSendMessage(messageText) {
             easing: 'ease-out'
         });
 
+        hideLoading(); // Hide loading animation after message is sent
     }, 3000); // Adjust this duration for how long you want the "typing" effect to last
 }
 
 
-// Function to send user messages
+
 function sendMessage(messageText) {
+    showLoading(); // Show the loading animation
     setTimeout(function () {
         var messageElement = document.createElement('div');
         messageElement.classList.add('message', 'user-message');
@@ -170,8 +173,10 @@ function sendMessage(messageText) {
            easing: 'ease-in-out'
        });
 
-    }, 500);
+        hideLoading(); // Hide the loading animation after the message is sent
+    }, 500); // Adjust the delay as needed
 }
+
 
 
 // Function to handle the selection method (type module code or search manually)
@@ -309,12 +314,12 @@ function initializeOptions(options) {
     ChatbotSendMessage(messageText);
 }
 
-// Event listener for the send button
 sendBtn.addEventListener('click', function () {
     let messageText = textbox.value.trim();
     if (messageText === "") {
         alert('Please type in a message');
     } else {
+        showLoading(); // Show loading animation before sending the message
         sendMessage(messageText);
         textbox.value = "";
 
@@ -333,6 +338,7 @@ sendBtn.addEventListener('click', function () {
         }
     }
 });
+
 
 textbox.addEventListener('keypress', function (e) {
     if (e.key === 'Enter') {
