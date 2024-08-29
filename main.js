@@ -121,6 +121,21 @@ function showTypingIndicator() {
     dots.classList.add('dots-animation');
 }
 
+function showLoading() {
+    var spinner = document.getElementById('loadingSpinner');
+    if (spinner) {
+        spinner.style.display = 'block';
+    }
+}
+
+function hideLoading() {
+    var spinner = document.getElementById('loadingSpinner');
+    if (spinner) {
+        spinner.style.display = 'none';
+    }
+}
+
+
 // Function to remove the "Chatbot is typing..." effect
 function removeTypingIndicator() {
     var typingElement = document.getElementById('typingIndicator');
