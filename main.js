@@ -163,11 +163,13 @@ function sendMessage(messageText) {
 
         // Add animation to the user message element
         messageElement.animate([
-            { opacity: 0.4, easing: "ease-in" }, 
-            { opacity: 1 }
-        ], { 
-            duration: 1000 
-        });
+            { transform: 'scale(0.5)', opacity: 0 }, 
+            { transform: 'scale(1)', opacity: 1 }
+       ], { 
+           duration: 1500, 
+           easing: 'ease-in-out'
+       });
+
     }, 500);
 }
 
