@@ -139,11 +139,15 @@ function ChatbotSendMessage(messageText) {
 
         // Add animation to the message element
         messageElement.animate([
-            { opacity: 0.4, easing: "ease-in" }, 
-            { opacity: 2 }
+            { transform: 'translateY(-20px)', opacity: 0 },
+            { transform: 'translateY(10px)', opacity: 1 },
+            { transform: 'translateY(-5px)' },
+            { transform: 'translateY(0)' }
         ], { 
-            duration: 2000 
+            duration: 1000, 
+            easing: 'ease-out'
         });
+
     }, 3000); // Adjust this duration for how long you want the "typing" effect to last
 }
 
