@@ -142,9 +142,9 @@ function ChatbotSendMessage(messageText) {
             { opacity: 0.4, easing: "ease-in" }, 
             { opacity: 2 }
         ], { 
-            duration: 4000 
+            duration: 2000 
         });
-    }, 2000); // Adjust this duration for how long you want the "typing" effect to last
+    }, 3000); // Adjust this duration for how long you want the "typing" effect to last
 }
 
 
