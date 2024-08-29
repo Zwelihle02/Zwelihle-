@@ -107,9 +107,30 @@ var modules = [
 // Initial message from the chatbot
 ChatbotSendMessage("Sawubona! igamalami ubheki ngiyi shathi bhothi yase UNIZULU. Umsebenziwami ukukusiza ukuthi uthole izinsiza kufunda ezikuma mojuli gadi. Bengicela ufake imojuli khodi noma ubhale inombolo 1 ukuze siqale.");
 
-// Function to send chatbot messages
+// Function to show the "Chatbot is typing..." effect
+function showTypingIndicator() {
+    var typingElement = document.createElement('div');
+    typingElement.classList.add('message', 'bot-message');
+    typingElement.innerHTML = "<span>Chatbot:</span><span style='display:block; margin-top:10px;'>Chatbot is typing...</span>";
+    typingElement.id = "typingIndicator"; // Set an ID for later removal
+    chatContainer.appendChild(typingElement);
+    chatContainer.scrollTop = chatContainer.scrollHeight;
+}
+
+// Function to remove the "Chatbot is typing..." effect
+function removeTypingIndicator() {
+    var typingElement = document.getElementById('typingIndicator');
+    if (typingElement) {
+        typingElement.remove();
+    }
+}
+
+// Function to send chatbot messages with "thinking" effect
 function ChatbotSendMessage(messageText) {
+    showTypingIndicator();
+
     setTimeout(function () {
+        removeTypingIndicator();
         var messageElement = document.createElement('div');
         messageElement.classList.add('message', 'bot-message');
         messageElement.innerHTML = "<span>Chatbot:</span><span style='display:block; margin-top:10px;'>" + messageText + "</span>";
@@ -123,8 +144,9 @@ function ChatbotSendMessage(messageText) {
         ], { 
             duration: 4000 
         });
-    }, 500);
+    }, 2000); // Adjust this duration for how long you want the "typing" effect to last
 }
+
 
 // Function to send user messages
 function sendMessage(messageText) {
